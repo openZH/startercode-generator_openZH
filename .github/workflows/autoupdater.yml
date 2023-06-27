@@ -1,0 +1,35 @@
+name: autoupdater
+run-name: autoupdater
+on:
+  push:
+  schedule:
+    - cron:  '35 3 * * *'
+
+jobs:
+  python_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+          cache: 'pip' # caching pip dependencies
+
+      - run: pip install -r requirements.txt
+      - run: python updater.py
+
+      - name: Push generated files to target repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.PAT }}
+        with:
+          source-directory: '_work'
+          destination-github-username: 'openZH'
+          destination-repository-name: 'starter-code-openZH'
+          target-branch: main
+          commit-message: "Updates"
+          
