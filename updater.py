@@ -79,7 +79,7 @@ def filter_csv(all_data):
 
 def sort_data(data):
     """Sort by integer prefix of identifier"""
-    data["id_short"] = df.identifier.apply(
+    data["id_short"] = data.identifier.apply(
         lambda x: x.split("@")[0]).astype(int)
     data.sort_values("id_short", inplace=True)
     data.reset_index(drop=True, inplace=True)
@@ -98,7 +98,7 @@ def prepare_data_for_codebooks(data):
         md = [
             f"- **{k.capitalize()}** `{data.loc[idx, k]}`\n" for k in KEYS_DATASET]
         data.loc[idx, "metadata"] = "".join(md)
-        contact_data = df.loc[idx, "contactPoint"][0].values()
+        contact_data = data.loc[idx, "contactPoint"][0].values()
         contact_data = [x for x in contact_data if x != None]
         data.loc[idx, "contact"] = " | ".join(contact_data)
 
