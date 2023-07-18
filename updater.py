@@ -1,12 +1,13 @@
 # IMPORTS -------------------------------------------------------------------- #
 
-import pandas as pd
-import numpy as np
-import requests
+import copy
 import json
 import re
-import copy
 from datetime import datetime
+
+import numpy as np
+import pandas as pd
+import requests
 from tqdm import tqdm
 
 import warnings
