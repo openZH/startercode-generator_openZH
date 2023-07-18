@@ -215,11 +215,13 @@ def get_header(dataset_count):
     return header
 
 
-def create_overview(data, header):
+def create_overview(data):
     """Create README with link table"""
     baselink_r_gh = f"https://github.com/{GITHUB_ACCOUNT}/{REPO_NAME}/blob/{REPO_BRANCH}/{REPO_R_MARKDOWN_OUTPUT}"
     baselink_py_gh = f"https://github.com/{GITHUB_ACCOUNT}/{REPO_NAME}/blob/{REPO_BRANCH}/{REPO_PYTHON_OUTPUT}"
     baselink_py_colab = f"https://githubtocolab.com/{GITHUB_ACCOUNT}/{REPO_NAME}/blob/{REPO_BRANCH}/{REPO_PYTHON_OUTPUT}"
+
+    header = get_header(len(data))
 
     md_doc = []
     md_doc.append(header)
@@ -263,9 +265,7 @@ def main():
 
     create_python_notebooks(datasets)
     create_rmarkdown(datasets)
-
-    header = get_header(len(datasets))
-    create_overview(datasets, header)
+    create_overview(datasets)
 
 
 if __name__ == "__main__":
