@@ -65,10 +65,7 @@ def get_current_json():
 def has_csv_distribution(dists):
     """Iterate over distributions and keep only CSV entries"""
     csv_dists = [x for x in dists if "CSV" in x.get("format", "")]
-    if csv_dists != []:
-        return csv_dists
-    else:
-        return np.nan
+    return csv_dists or np.nan
 
 
 def filter_csv(all_data):
