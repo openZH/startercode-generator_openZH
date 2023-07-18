@@ -252,14 +252,20 @@ def create_overview(data, header):
 
 # CREATE CODE FILES ---------------------------------------------------------- #
 
-all_data = get_current_json()
 
-df = filter_csv(all_data)
-df = sort_data(df)
-df = prepare_data_for_codebooks(df)
+def main():
+    all_data = get_current_json()
 
-create_python_notebooks(df)
-create_rmarkdown(df)
+    df = filter_csv(all_data)
+    df = sort_data(df)
+    df = prepare_data_for_codebooks(df)
 
-header = get_header(len(df))
-create_overview(df, header)
+    create_python_notebooks(df)
+    create_rmarkdown(df)
+
+    header = get_header(len(df))
+    create_overview(df, header)
+
+
+if __name__ == "__main__":
+    main()
