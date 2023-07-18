@@ -10,8 +10,8 @@ import pandas as pd
 import requests
 from tqdm import tqdm
 
-import warnings
-warnings.simplefilter(action='ignore', category=FutureWarning)
+# import warnings
+# warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
 # CONSTANTS ------------------------------------------------------------------ #
