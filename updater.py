@@ -254,11 +254,12 @@ def create_overview(data, header):
 
 
 def main():
-    all_data = get_current_json()
-
-    df = filter_csv(all_data)
-    df = sort_data(df)
-    df = prepare_data_for_codebooks(df)
+    df = (
+        get_current_json()
+        .pipe(filter_csv)
+        .pipe(sort_data)
+        .pipe(prepare_data_for_codebooks)
+    )
 
     create_python_notebooks(df)
     create_rmarkdown(df)
