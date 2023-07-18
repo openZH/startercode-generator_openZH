@@ -254,18 +254,18 @@ def create_overview(data, header):
 
 
 def main():
-    df = (
+    datasets = (
         get_current_json()
         .pipe(filter_csv)
         .pipe(sort_data)
         .pipe(prepare_data_for_codebooks)
     )
 
-    create_python_notebooks(df)
-    create_rmarkdown(df)
+    create_python_notebooks(datasets)
+    create_rmarkdown(datasets)
 
-    header = get_header(len(df))
-    create_overview(df, header)
+    header = get_header(len(datasets))
+    create_overview(datasets, header)
 
 
 if __name__ == "__main__":
