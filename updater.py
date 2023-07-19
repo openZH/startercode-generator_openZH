@@ -1,16 +1,17 @@
 # IMPORTS -------------------------------------------------------------------- #
 
-import pandas as pd
-import numpy as np
-import requests
+import copy
 import json
 import re
-import copy
 from datetime import datetime
+
+import numpy as np
+import pandas as pd
+import requests
 from tqdm import tqdm
 
-import warnings
-warnings.simplefilter(action='ignore', category=FutureWarning)
+# import warnings
+# warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
 # CONSTANTS ------------------------------------------------------------------ #
@@ -64,10 +65,7 @@ def get_current_json():
 def has_csv_distribution(dists):
     """Iterate over distributions and keep only CSV entries"""
     csv_dists = [x for x in dists if "CSV" in x.get("format", "")]
-    if csv_dists != []:
-        return csv_dists
-    else:
-        return np.nan
+    return csv_dists or np.nan
 
 
 def filter_csv(all_data):
@@ -81,7 +79,7 @@ def filter_csv(all_data):
 
 def sort_data(data):
     """Sort by integer prefix of identifier"""
-    data["id_short"] = df.identifier.apply(
+    data["id_short"] = data.identifier.apply(
         lambda x: x.split("@")[0]).astype(int)
     data.sort_values("id_short", inplace=True)
     data.reset_index(drop=True, inplace=True)
@@ -100,7 +98,7 @@ def prepare_data_for_codebooks(data):
         md = [
             f"- **{k.capitalize()}** `{data.loc[idx, k]}`\n" for k in KEYS_DATASET]
         data.loc[idx, "metadata"] = "".join(md)
-        contact_data = df.loc[idx, "contactPoint"][0].values()
+        contact_data = data.loc[idx, "contactPoint"][0].values()
         contact_data = [x for x in contact_data if x != None]
         data.loc[idx, "contact"] = " | ".join(contact_data)
 
@@ -124,10 +122,11 @@ def prepare_data_for_codebooks(data):
 
 def create_python_notebooks(data):
     """Create Jupyter Notebooks with Python starter code"""
-    for idx in tqdm(data.index):
-        with open(f"{TEMPLATE_FOLDER}{TEMPLATE_PYTHON}") as file:
-            py_nb = file.read()
+    with open(f"{TEMPLATE_FOLDER}{TEMPLATE_PYTHON}") as file:
+        py_nb_template = file.read()
 
+    for idx in tqdm(data.index):
+        py_nb = py_nb_template
         # populate template with metadata
         identifier = data.loc[idx, "identifier"]
         py_nb = py_nb.replace("{{ PROVIDER }}", PROVIDER)
@@ -174,10 +173,11 @@ def create_python_notebooks(data):
 
 def create_rmarkdown(data):
     """Create R Markdown files with R starter code"""
-    for idx in tqdm(data.index):
-        with open(f"{TEMPLATE_FOLDER}{TEMPLATE_RMARKDOWN}") as file:
-            rmd = file.read()
+    with open(f"{TEMPLATE_FOLDER}{TEMPLATE_RMARKDOWN}") as file:
+        rmd_template = file.read()
 
+    for idx in tqdm(data.index):
+        rmd = rmd_template
         # populate template with metadata
         identifier = data.loc[idx, "identifier"]
         rmd = rmd.replace("{{ DATASET_TITLE }}", data.loc[idx, "title"])
@@ -217,11 +217,13 @@ def get_header(dataset_count):
     return header
 
 
-def create_overview(data, header):
+def create_overview(data):
     """Create README with link table"""
     baselink_r_gh = f"https://github.com/{GITHUB_ACCOUNT}/{REPO_NAME}/blob/{REPO_BRANCH}/{REPO_R_MARKDOWN_OUTPUT}"
     baselink_py_gh = f"https://github.com/{GITHUB_ACCOUNT}/{REPO_NAME}/blob/{REPO_BRANCH}/{REPO_PYTHON_OUTPUT}"
     baselink_py_colab = f"https://githubtocolab.com/{GITHUB_ACCOUNT}/{REPO_NAME}/blob/{REPO_BRANCH}/{REPO_PYTHON_OUTPUT}"
+
+    header = get_header(len(data))
 
     md_doc = []
     md_doc.append(header)
@@ -254,14 +256,19 @@ def create_overview(data, header):
 
 # CREATE CODE FILES ---------------------------------------------------------- #
 
-all_data = get_current_json()
 
-df = filter_csv(all_data)
-df = sort_data(df)
-df = prepare_data_for_codebooks(df)
+def main():
+    datasets = (
+        get_current_json()
+        .pipe(filter_csv)
+        .pipe(sort_data)
+        .pipe(prepare_data_for_codebooks)
+    )
 
-create_python_notebooks(df)
-create_rmarkdown(df)
+    create_python_notebooks(datasets)
+    create_rmarkdown(datasets)
+    create_overview(datasets)
 
-header = get_header(len(df))
-create_overview(df, header)
+
+if __name__ == "__main__":
+    main()
