@@ -122,10 +122,11 @@ def prepare_data_for_codebooks(data):
 
 def create_python_notebooks(data):
     """Create Jupyter Notebooks with Python starter code"""
-    for idx in tqdm(data.index):
-        with open(f"{TEMPLATE_FOLDER}{TEMPLATE_PYTHON}") as file:
-            py_nb = file.read()
+    with open(f"{TEMPLATE_FOLDER}{TEMPLATE_PYTHON}") as file:
+        py_nb_template = file.read()
 
+    for idx in tqdm(data.index):
+        py_nb = py_nb_template
         # populate template with metadata
         identifier = data.loc[idx, "identifier"]
         py_nb = py_nb.replace("{{ PROVIDER }}", PROVIDER)
@@ -172,10 +173,11 @@ def create_python_notebooks(data):
 
 def create_rmarkdown(data):
     """Create R Markdown files with R starter code"""
-    for idx in tqdm(data.index):
-        with open(f"{TEMPLATE_FOLDER}{TEMPLATE_RMARKDOWN}") as file:
-            rmd = file.read()
+    with open(f"{TEMPLATE_FOLDER}{TEMPLATE_RMARKDOWN}") as file:
+        rmd_template = file.read()
 
+    for idx in tqdm(data.index):
+        rmd = rmd_template
         # populate template with metadata
         identifier = data.loc[idx, "identifier"]
         rmd = rmd.replace("{{ DATASET_TITLE }}", data.loc[idx, "title"])
