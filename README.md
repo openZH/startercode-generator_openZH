@@ -53,4 +53,4 @@ Your ideas and contributions are very welcome. Please open an issue or a pull re
 
 
 ## Credits
-This repo is inspired and based on the work of (in alphabetical order) [Patrick Arnecke](https://github.com/rnckp), [Philipp Bosch](https://github.com/philbosch), [Stefan Oderbolz](https://github.com/metaodi/metaodi), [Adrian Rupp](https://github.com/adrianrupp88) and [Laure Stadler](https://github.com/stadlaur).
+This repo is inspired and based on the work of (in alphabetical order) [Patrick Arnecke](https://github.com/rnckp), [Philipp Bosch](https://github.com/philbosch), [Stefan Oderbolz](https://github.com/metaodi/metaodi), [Adrian Rupp](https://github.com/adrianrupp88) and [Laure Stadler](https://github.com/stadlaur). Special thanks to [Fabian Egli](https://github.com/fabianegli) for a valuable pull request with several improvements.
