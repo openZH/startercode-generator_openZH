@@ -18,10 +18,10 @@ The result looks like [this](https://github.com/openZH/starter-code-openZH).
 ## How does it work?
 The system works with two repos. 
 - The **first repo** contains the code from this repo here that creates the notebooks and the overview README. 
-- A GitHub Actin workflow instantiates a container, installs the necessary dependencies, clones the repo, and executes the script. 
+- A GitHub Action workflow instantiates a container, installs the necessary dependencies, clones the repo, and executes the script. 
 - Once the notebooks are created the workflow will push these to a **second repo** that you can make available for your users.
 
-The script works with templates that are stored in – you gessed it – `_templates`. You easily can adapt these according to your ideas. Just make sure that you keep the necessary placeholders (marked with double curly brackets) in the templates. The script will replace them with values from the metadata JSON.
+The script works with templates that are stored in – you guessed it – `_templates`. You easily can adapt these according to your ideas. Just make sure that you keep the necessary placeholders (marked with double curly brackets) in the templates. The script will replace them with values from the metadata JSON.
 
 The code works out of the box with the [metadata API of the open data shop of the Canton of Zurich](https://www.web.statistik.zh.ch/ogd/datenkatalog/standalone/datasets/1461@fachstelle-ogd-kanton-zuerich). It can be easily adapted to other data shops. E.g. [here is a repo with starter code notebooks for all CSV data set on opendata.swiss](https://github.com/rnckp/starter-code_opendataswiss).
 
@@ -41,7 +41,7 @@ The code works out of the box with the [metadata API of the open data shop of th
 -   In your GitHub account go to `Settings > Secrets` and create a new secret by clicking `New repository secret`.
     -   Set the name to `PAT` and paste the token you just copied. If you name your secret differently you need to adapt the workflow file accordingly.
 -   Manually trigger the GitHub Action workflow and check the results.
--   Do not forget to add a licence to your second repo.
+-   Do not forget to add a license to your second repo.
 
 
 ## Good to know
