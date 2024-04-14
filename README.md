@@ -2,7 +2,6 @@
 
 ### Automatically generate Python and R starter code for Open Government Data Shops
 
-
 ## Overview
 This repo provides a Python script that generates starter code notebooks from a metadata JSON of open data shops. You can execute the script manually or trigger it regularly (e.g. every night) with a GitHub Action that we provide here too and by that create code notebooks for every dataset in your data shop. 
 
@@ -14,7 +13,6 @@ Your users get notebooks that are specifically tailored for every one of your da
 
 The result looks like [this](https://github.com/openZH/starter-code-openZH).
 
-
 ## How does it work?
 The system works with two repos. 
 - The **first repo** contains the code from this repo here that creates the notebooks and the overview README. 
@@ -24,7 +22,6 @@ The system works with two repos.
 The script works with templates that are stored in – you guessed it – `_templates`. You easily can adapt these according to your ideas. Just make sure that you keep the necessary placeholders (marked with double curly brackets) in the templates. The script will replace them with values from the metadata JSON.
 
 The code works out of the box with the [metadata API of the open data shop of the Canton of Zurich](https://www.web.statistik.zh.ch/ogd/datenkatalog/standalone/datasets/1461@fachstelle-ogd-kanton-zuerich). It can be easily adapted to other data shops. E.g. [here is a repo with starter code notebooks for all CSV data set on opendata.swiss](https://github.com/rnckp/starter-code_opendataswiss).
-
 
 ## How to adapt the code to your needs?
 -   Clone this repo and commit/push it to your GitHub account.
@@ -43,15 +40,12 @@ The code works out of the box with the [metadata API of the open data shop of th
 -   Manually trigger the GitHub Action workflow and check the results.
 -   Do not forget to add a license to your second repo.
 
-
 ## Good to know
 - The wonderful people of the [OGD team Thurgau](https://ogd.tg.ch/) have created a [similar project](https://github.com/ogdtg/starter-code-ogdtg).
 - The wonderful people of [Landeshauptstadt München Open Source](https://opensource.muenchen.de/de/) have adapted this repo and [published Starter Code for all their OGD](https://opensource.muenchen.de/de/software/startercode.html) too.
 
-
 ## Collaboration
 Your ideas and contributions are very welcome. Please open an issue or a pull request.
-
 
 ## Credits
 This repo is inspired and based on the work of (in alphabetical order) [Patrick Arnecke](https://github.com/rnckp), [Philipp Bosch](https://github.com/philbosch), [Stefan Oderbolz](https://github.com/metaodi/metaodi), [Adrian Rupp](https://github.com/adrianrupp88) and [Laure Stadler](https://github.com/stadlaur). Special thanks to [Fabian Egli](https://github.com/fabianegli) for a valuable pull request with several improvements.
