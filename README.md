@@ -32,7 +32,7 @@ The code works out of the box with the [metadata API of the open data shop of th
 -   Adapt the constants in `updater.py` to your account information, repo names, etc.
 -   Adapt the parsing functions in `updater.py` to your metadata API.
 -   Adapt the workflow file (see `.github/workflows/autoupdater.yml`):
-    -   Set the cron pattern.
+    -   Set the cron pattern. At the moment this is commented out.
     -   Set the values for `destination-github-username` (the name of your GitHub account) and `destination-repository-name` (the name of the mentioned second repo that receives the results).
 -   In your GitHub account go to `Settings > Developer settings > Personal access tokens > Fine-grained tokens` and create a new token by clicking `Generate new token`.
     -   Set a token name and set the expiration.
