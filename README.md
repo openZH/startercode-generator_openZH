@@ -46,7 +46,7 @@ The code works out of the box with the [metadata API of the open data shop of th
 
 ## Good to know
 - The wonderful people of the [OGD team Thurgau](https://ogd.tg.ch/) have created a [similar project](https://github.com/ogdtg/starter-code-ogdtg).
-- The wonderful people of [Landeshauptstadt München Open Source](https://opensource.muenchen.de/de/) have [adapted this repo](https://opensource.muenchen.de/de/software/startercode.html) and published Starter Code for all their OGD too.
+- The wonderful people of [Landeshauptstadt München Open Source](https://opensource.muenchen.de/de/) have adapted this repo and [published Starter Code for all their OGD](https://opensource.muenchen.de/de/software/startercode.html) too.
 
 ## Collaboration
 Your ideas and contributions are very welcome. Please open an issue or a pull request.
