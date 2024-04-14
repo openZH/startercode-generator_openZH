@@ -3,7 +3,8 @@ run-name: autoupdater
 on:
   push:
   schedule:
-    - cron:  '35 3 * * *'
+  # # Add a cron job here e.g. every day at 3:35am
+  # - cron:  '35 3 * * *'
 
 jobs:
   python_script:
@@ -16,8 +17,8 @@ jobs:
 
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.8'
-          cache: 'pip' # caching pip dependencies
+          python-version: '3.9'
+          cache: 'pip' # Caching pip dependencies.
 
       - run: pip install -r requirements.txt
       - run: python updater.py
