@@ -1,6 +1,6 @@
 # 🚀 Starter Code Generator OpenZH
 
-### Automatically generate Python and R starter code for Open Government Data Shops
+### Automagically generate Python and R starter code for Open Government Data Shops
 
 ## Overview
 This repo provides a Python script that generates starter code notebooks from a metadata JSON of open data shops. You can execute the script manually or trigger it regularly (e.g. every night) with a GitHub Action that we provide here too and by that create code notebooks for every dataset in your data shop. 
@@ -42,7 +42,7 @@ The code works out of the box with the [metadata API of the open data shop of th
 
 ## Good to know
 - The wonderful people of the [OGD team Thurgau](https://ogd.tg.ch/) have created a [similar project](https://github.com/ogdtg/starter-code-ogdtg).
-- The wonderful people of [Landeshauptstadt München Open Source](https://opensource.muenchen.de/de/) have adapted this repo and [published Starter Code for all their OGD](https://opensource.muenchen.de/de/software/startercode.html) too.
+- The wonderful people of [Landeshauptstadt München Open Source](https://opensource.muenchen.de/de/) have adapted this repo and [published starter code for all their OGD](https://opensource.muenchen.de/de/software/startercode.html) too.
 
 ## Collaboration
 Your ideas and contributions are very welcome. Please open an issue or a pull request.
