@@ -1,0 +1,46 @@
+# Configuration for startercode-generator
+# All magic values extracted from updater.py
+
+paths:
+  metadata_json: "_metadata_json/"
+  templates: "_templates/"
+  work_prefix: "_work/"
+  r_markdown_output: "01_r-markdown/"
+  python_output: "02_python/"
+
+templates:
+  header: "template_header.md"
+  python: "template_python.ipynb"
+  rmarkdown: "template_rmarkdown.Rmd"
+
+datashop:
+  base_link: "https://www.zh.ch/de/politik-staat/opendata.html#/datasets/"
+  metadata_link: "https://www.web.statistik.zh.ch/ogd/daten/zhweb.json"
+  abbreviation: "ktzh"
+
+github:
+  account: "openZH"
+  repo_name: "starter-code-openZH"
+  branch: "main"
+
+display:
+  title_max_chars: 200
+  provider: "Canton Zurich"
+
+metadata_keys:
+  dataset:
+    - "issued"
+    - "modified"
+    - "startDate"
+    - "endDate"
+    - "theme"
+    - "keyword"
+    - "publisher"
+    - "landingPage"
+  distribution:
+    - "ktzhDistId"
+    - "title"
+    - "description"
+    - "issued"
+    - "modified"
+    - "rights"
