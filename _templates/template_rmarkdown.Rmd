@@ -10,7 +10,7 @@ output: html_document
 
 {{ DATASHOP_LINK }}
 
-Auto generated R starter code for data set {{ DATASET_IDENTIFIER }}.
+Auto-generated R starter code for data set {{ DATASET_IDENTIFIER }}.
 
 ## Metadata
 
