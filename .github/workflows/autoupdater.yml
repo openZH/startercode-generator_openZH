@@ -15,13 +15,12 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
 
-      - uses: actions/setup-python@v6
+      - uses: astral-sh/setup-uv@v5
         with:
-          python-version: '3.13'
-          cache: 'pip' # Caching pip dependencies.
+          enable-cache: true
 
-      - run: pip install -r requirements.txt
-      - run: python updater.py
+      - run: uv sync
+      - run: uv run python updater.py
 
       - name: Push generated files to target repository
         uses: cpina/github-action-push-to-another-repository@main

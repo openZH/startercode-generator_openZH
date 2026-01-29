@@ -17,3 +17,4 @@ env
 .env
 
 __pycache__/
+AGENTS.md
