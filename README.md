@@ -4,13 +4,13 @@
 
 ## Overview
 
-This repo provides a Python script that generates starter code notebooks from a metadata JSON of open data shops. You can execute the script manually or trigger it regularly (e.g. every night) with a GitHub Action that we provide here too and by that create code notebooks for every dataset in your data shop.
+This repo provides a Python script that generates starter code notebooks from the metadata JSON of an open data shop. You can execute the script manually or trigger it regularly (e.g., every night) with a GitHub Action that we provide here, thereby creating code notebooks for every dataset in your data shop.
 
 The script also generates a README file that contains a list of all datasets and links to the corresponding notebooks that you can use as an overview for your users. You can expose this easily as a website with GitHub Pages.
 
 The execution of the script is lightweight and takes only a couple of minutes, depending on the number of datasets in your data portal.
 
-Your users get notebooks that are specifically tailored for every one of your datasets. They are already set with the most recent dataset metadata and code snippets. Users can start their analysis for your datasets right away with just a couple of clicks or even just one single click if they use Google Colab.
+Your users get notebooks that are specifically tailored to each of your datasets. They are already configured with the most recent dataset metadata and code snippets. Users can start their analysis of your datasets right away with just a couple of clicks – or even a single click if they use Google Colab.
 
 The result looks like [this](https://github.com/openZH/starter-code-openZH).
 
@@ -18,13 +18,13 @@ The result looks like [this](https://github.com/openZH/starter-code-openZH).
 
 The system works with two repos.
 
-- The **first repo** contains the code from this repo here that creates the notebooks and the overview README.
+- The **first repo** contains the code from this repo that creates the notebooks and the overview README.
 - A GitHub Action workflow instantiates a container, installs the necessary dependencies, clones the repo, and executes the script.
-- Once the notebooks are created the workflow will push these to a **second repo** that you can make available for your users.
+- Once the notebooks are created, the workflow will push them to a **second repo** that you can make available to your users.
 
-The script works with templates that are stored in – you guessed it – `_templates`. You easily can adapt these according to your ideas. Just make sure that you keep the necessary placeholders (marked with double curly brackets) in the templates. The script will replace them with values from the metadata JSON.
+The script works with templates that are stored in – you guessed it – `_templates`. You can easily adapt these to suit your needs. Just make sure that you keep the necessary placeholders (marked with double curly brackets) in the templates. The script will replace them with values from the metadata JSON.
 
-The code works out of the box with the [metadata API of the open data shop of the Canton of Zurich](https://www.web.statistik.zh.ch/ogd/datenkatalog/standalone/datasets/1461@fachstelle-ogd-kanton-zuerich). It can be easily adapted to other data shops. E.g., [here is a repo with starter code notebooks for all CSV datasets on opendata.swiss](https://github.com/rnckp/starter-code_opendataswiss).
+The code works out of the box with the [metadata API of the open data shop of the Canton of Zurich](https://www.web.statistik.zh.ch/ogd/datenkatalog/standalone/datasets/1461@fachstelle-ogd-kanton-zuerich). It can be easily adapted to other data shops. For example, [here is a repo with starter code notebooks for all CSV datasets on opendata.swiss](https://github.com/rnckp/starter-code_opendataswiss).
 
 ## How to adapt the code to your needs?
 
@@ -46,8 +46,8 @@ The code works out of the box with the [metadata API of the open data shop of th
 
 ## Good to know
 
-- The wonderful people of the [OGD team Thurgau](https://ogd.tg.ch/) have created a [similar project](https://github.com/ogdtg/starter-code-ogdtg).
-- The wonderful people of [Landeshauptstadt München Open Source](https://opensource.muenchen.de/de/) have adapted this repo and [published starter code for all their OGD](https://opensource.muenchen.de/de/software/startercode.html) too.
+- The wonderful people at the [OGD team Thurgau](https://ogd.tg.ch/) have created a [similar project](https://github.com/ogdtg/starter-code-ogdtg).
+- The wonderful people at [Landeshauptstadt München Open Source](https://opensource.muenchen.de/de/) have adapted this repo and [published starter code for all their OGD](https://opensource.muenchen.de/de/software/startercode.html) too.
 
 ## Collaboration
 
