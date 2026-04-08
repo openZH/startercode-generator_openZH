@@ -12,6 +12,9 @@ dependencies = [
     "tqdm>=4.67.1",
 ]
 
+[tool.uv]
+exclude-newer = "7 days"
+
 [dependency-groups]
 dev = [
     "ruff>=0.14.14",
