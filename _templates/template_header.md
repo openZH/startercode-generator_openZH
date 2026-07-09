@@ -4,7 +4,7 @@
 
 This is an experiment to provide exactly this.
 
-With this repo you get starter code for **all CSV datasets** (currently {{ DATASET_COUNT }}) that are available in the [Data Shop of the Statistical Office of Canton Zurich](https://www.zh.ch/de/politik-staat/opendata.zhweb-noredirect.zhweb-cache.html?keywords=ogd#/).
+With this repo you get starter code for **all CSV datasets** (currently {{ DATASET_COUNT }}) that are available in the [Data Shop of the Office for Statistics and Data of the Canton of Zurich](https://www.zh.ch/de/politik-staat/opendata.zhweb-noredirect.zhweb-cache.html?keywords=ogd#/).
 
 In the list below, you will find links to preconfigured code files so that you **can immediately start analyzing the data with R or Python.**
 
