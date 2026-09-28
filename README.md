@@ -1,5 +1,9 @@
 # 🚀 Starter Code Generator OpenZH
 
+### Old version - not in use anymore. Use [this current repository instead](https://github.com/openZH/starter-code-openzh-generator).
+
+---
+
 ### Automagically generate Python and R starter code for Open Government Data Shops
 
 ## Overview
